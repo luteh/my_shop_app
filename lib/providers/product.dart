@@ -4,7 +4,7 @@ import 'package:flutter/foundation.dart';
 /// Created by luthfan.maftuh on 2020-01-23.
 ///
 
-class Product {
+class Product with ChangeNotifier {
   final String id;
   final String title;
   final String description;
@@ -20,4 +20,9 @@ class Product {
     @required this.imageUrl,
     this.isFavorite = false,
   });
+
+  void toggleFavoriteStatus() {
+    isFavorite = !isFavorite;
+    notifyListeners();
+  }
 }
